@@ -1,0 +1,157 @@
+:root {
+  --font-weights-button: var(--font-weights-medium);
+  --font-sizes-button: var(--font-sizes-base);
+  --letter-spacings-button: var(--letter-spacings-3);
+
+  --colors-button-primary-initial: var(--colors-primary-base);
+  --colors-button-primary-hover: var(--colors-primary-2);
+  --colors-button-primary-active: var(--colors-primary-1);
+
+  --colors-button-light-initial: var(--colors-primary-6);
+  --colors-button-light-hover: var(--colors-primary-5);
+  --colors-button-light-active: var(--colors-primary-4);
+
+  --colors-button-monotone-initial: var(--colors-accent-6);
+  --colors-button-monotone-hover: var(--colors-accent-5);
+  --colors-button-monotone-active: var(--colors-accent-4);
+
+  --shadows-button-primary-initial: inset 0 0 0 1px
+    var(--colors-button-primary-initial);
+  --shadows-button-primary-hover: inset 0 0 0 1px
+    var(--colors-button-primary-hover);
+  --shadows-button-primary-active: inset 0 0 0 1px
+    var(--colors-button-primary-active);
+
+  --shadows-button-light-initial: inset 0 0 0 1px
+    var(--colors-button-light-initial);
+  --shadows-button-light-hover: inset 0 0 0 1px var(--colors-button-light-hover);
+  --shadows-button-light-active: inset 0 0 0 1px
+    var(--colors-button-light-active);
+
+  --shadows-button-monotone-initial: inset 0 0 0 1px
+    var(--colors-button-monotone-initial);
+  --shadows-button-monotone-hover: inset 0 0 0 1px
+    var(--colors-button-monotone-hover);
+  --shadows-button-monotone-active: inset 0 0 0 1px
+    var(--colors-button-monotone-active);
+}
+
+.btn {
+  position: relative;
+  inline-size: auto;
+  block-size: fit-content;
+  display: flex;
+  gap: var(--space-base);
+  flex-shrink: 0;
+  flex-grow: 0;
+  justify-content: flex-start;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  overflow: hidden;
+
+  font-weight: var(--font-weights-button);
+  font-size: var(--font-sizes-button);
+  text-transform: uppercase;
+  letter-spacing: var(--letter-spacings-button);
+  text-decoration: none;
+
+  user-select: none;
+  transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+  appearance: none;
+
+  // ALIGNMENT
+  align-items: center;
+  justify-content: center;
+
+  border-radius: var(--radii-base);
+
+  &[disabled] {
+    background-color: var(--colors-status-disabled);
+    box-shadow: none;
+    color: var(--colors-accent-3);
+
+    &:hover {
+      background-color: var(--colors-status-disabled);
+      box-shadow: none;
+      color: var(--colors-accent-3);
+    }
+
+    &:active {
+      background-color: var(--colors-status-disabled);
+      box-shadow: none;
+      color: var(--colors-accent-3);
+    }
+
+    cursor: not-allowed;
+  }
+
+  &.-primary {
+    background-color: var(--colors-button-primary-initial);
+    color: var(--colors-light-4);
+
+    & > svg {
+      fill: var(--colors-light-4);
+    }
+
+    &:hover {
+      background-color: var(--colors-button-primary-hover);
+    }
+
+    &:active {
+      background-color: var(--colors-button-primary-active);
+    }
+
+    &[disabled] {
+      background-color: var(--colors-status-disabled);
+      cursor: "not-allowed";
+    }
+  }
+
+  &.-outline {
+    background-color: var(--colors-light-4);
+    box-shadow: var(--shadows-button-primary-initial);
+    color: var(--colors-button-primary-initial);
+
+    &:hover {
+      color: var(--colors-button-primary-hover);
+
+      box-shadow: var(--shadows-button-primary-hover);
+      background-color: var(--colors-light-3);
+    }
+
+    &:active {
+      color: var(--colors-button-primary-active);
+
+      box-shadow: var(--colors-button-primary-active);
+      background-color: var(--colors-light-3);
+    }
+
+    &[disabled] {
+      background-color: transparent;
+      box-shadow: var(--shadows-button-monotone-initial);
+      cursor: "not-allowed";
+    }
+
+    &[disabled]:hover {
+      background-color: transparent;
+      box-shadow: var(--shadows-button-monotone-initial);
+    }
+  }
+
+  &.-normal {
+    padding-left: var(--space-7);
+    padding-right: var(--space-7);
+    padding-top: var(--space-4);
+    padding-bottom: var(--space-4);
+  }
+
+  &.-small {
+    padding-left: var(--space-4);
+    padding-right: var(--space-4);
+    padding-top: var(--space-2);
+    padding-bottom: var(--space-2);
+    border-radius: 9999px;
+    text-transform: none;
+  }
+}

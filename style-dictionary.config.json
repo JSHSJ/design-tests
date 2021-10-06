@@ -1,0 +1,28 @@
+{
+  "source": ["src/tokens/**/*.json"],
+  "platforms": {
+    "css": {
+      "transformGroup": "css",
+      "buildPath": "src/",
+      "files": [
+        {
+          "destination": "assets/css/base/_variables.css",
+          "format": "css/variables",
+          "options": {
+            "showFileHeader": false
+          }
+        }
+      ]
+    },
+    "tailwind": {
+      "transformGroup": "js",
+      "buildPath": "src/",
+      "files": [
+        {
+          "destination": "tailwind-tokens.json",
+          "format": "json/nested"
+        }
+      ]
+    }
+  }
+}
