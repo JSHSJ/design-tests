@@ -2,14 +2,14 @@ import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
 import {
-  ButtonCSS as Button,
-  ButtonSizeClass,
-  ButtonVariantClass,
-} from "./Button-CSS";
+  ButtonSizes,
+  ButtonTailwind as Button,
+  ButtonVariants,
+} from "./Button-Tailwind";
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
-  title: 'Example/ButtonCSS',
+  title: 'Example/ButtonTailwind',
   component: Button,
   // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
   // argTypes: {
@@ -23,24 +23,24 @@ const Template: ComponentStory<typeof Button> = (args) => <Button {...args} />;
 export const Primary = Template.bind({});
 // More on args: https://storybook.js.org/docs/react/writing-stories/args
 Primary.args = {
-  variant: ButtonVariantClass.PRIMARY,
+  variant: ButtonVariants.PRIMARY,
   children: 'Button',
 };
 
 export const Outline = Template.bind({});
 Outline.args = {
-  variant: ButtonVariantClass.OUTLINE,
+  variant: ButtonVariants.OUTLINE,
   children: 'Button',
 };
 
 export const Normal = Template.bind({});
 Normal.args = {
-  size: ButtonSizeClass.NORMAL,
+  size: ButtonSizes.NORMAL,
   children: 'Button',
 };
 
 export const Small = Template.bind({});
 Small.args = {
-  size: ButtonSizeClass.SMALL,
+  size: ButtonSizes.SMALL,
   children: 'Button',
 };
