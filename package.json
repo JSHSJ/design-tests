@@ -5,21 +5,33 @@
     "dev": "vite",
     "build": "tsc && vite build",
     "serve": "vite preview",
-    "tokens": "style-dictionary build --config style-dictionary.config.json"
+    "tokens": "style-dictionary build --config style-dictionary.config.json",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
   },
   "dependencies": {
     "autoprefixer": "^10.3.7",
     "postcss": "^8.3.9",
     "react": "^17.0.0",
     "react-dom": "^17.0.0",
-    "sass": "^1.42.1",
     "style-dictionary": "^3.0.2",
     "tailwindcss": "^2.2.16"
   },
   "devDependencies": {
+    "@babel/core": "^7.15.8",
+    "@storybook/addon-actions": "^6.3.10",
+    "@storybook/addon-essentials": "^6.3.10",
+    "@storybook/addon-links": "^6.3.10",
+    "@storybook/preset-scss": "^1.0.3",
+    "@storybook/react": "^6.3.10",
     "@types/react": "^17.0.0",
     "@types/react-dom": "^17.0.0",
     "@vitejs/plugin-react": "^1.0.0",
+    "babel-loader": "^8.2.2",
+    "css-loader": "^5.2.7",
+    "sass": "^1.42.1",
+    "sass-loader": "^10.1.1",
+    "style-loader": "^2.0.0",
     "typescript": "^4.3.2",
     "vite": "^2.6.0"
   }
