@@ -16,7 +16,6 @@ export type ButtonProps = {
   disabled?: boolean;
   variant?: ButtonVariantClass;
   size?: ButtonSizeClass;
-  hasIcon?: boolean;
   onClick(): void;
   ariaLabel?: string;
   type?: "submit" | "button" | "reset";
@@ -26,11 +25,27 @@ export type ButtonProps = {
   className?: string;
 };
 
+export interface IChildren {
+  type: {
+    name: string,
+  }
+}
+
+const hasIcon = (children: IChildren) => {
+  // Workaround: Using the code snippet below causes bug with addon-controls.
+  // See Bug Issue: https://github.com/storybookjs/storybook/issues/12401
+  // const hasIcon = children.type?.name === 'Icon';
+
+  if (React.isValidElement(children)) {
+    const hasIconTypes = children?.type !== undefined ? children.type.name : false;
+    return hasIconTypes === (<div />).type.name;
+  }
+};
+
 export const ButtonCSS: FC<ButtonProps> = ({
   disabled = false,
   variant = ButtonVariantClass.PRIMARY,
   size = ButtonSizeClass.NORMAL,
-  hasIcon = false,
   children,
   onClick,
   ariaLabel,

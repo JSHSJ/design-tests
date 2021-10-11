@@ -44,3 +44,13 @@ Small.args = {
   size: ButtonSizeClass.SMALL,
   children: 'Button',
 };
+
+export const WithIcon = Template.bind({});
+WithIcon.args = {
+  size: ButtonSizeClass.NORMAL,
+  children: (
+    <div style={{ width: '1rem', height: '1rem' }}>
+      x
+    </div>
+  ),
+};
