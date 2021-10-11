@@ -1,4 +1,4 @@
-import React, { FC, useMemo } from "react";
+import React, { FC, ReactNode, useMemo } from "react";
 
 import styles from './Button-CSS-Modules.module.scss';
 
@@ -31,13 +31,13 @@ export interface IChildren {
   }
 }
 
-const hasIcon = (children: IChildren) => {
+const hasIcon = (children: React.ReactNode) => {
   // Workaround: Using the code snippet below causes bug with addon-controls.
   // See Bug Issue: https://github.com/storybookjs/storybook/issues/12401
   // const hasIcon = children.type?.name === 'Icon';
 
   if (React.isValidElement(children)) {
-    const hasIconTypes = children?.type !== undefined ? children.type.name : false;
+    const hasIconTypes = children?.type !== undefined ? children.type?.name : false;
     return hasIconTypes === (<div />).type.name;
   }
 };
@@ -63,7 +63,7 @@ export const ButtonCSS: FC<ButtonProps> = ({
       disabled={disabled}
       aria-label={ariaLabel || ""}
       type={type}
-      className={[styles.btn, styles[variant], styles[size], className, ...hasIcon ? [styles.hasIcon] : []].join(" ")}
+      className={[styles.btn, styles[variant], styles[size], className, ...hasIcon(children) ? [styles.hasIcon] : []].join(" ")}
       onClick={onClick}
     >
       {children}
