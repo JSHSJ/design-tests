@@ -14,6 +14,9 @@ export enum ButtonSizeClass {
 
 export type ButtonProps = {
   disabled?: boolean;
+  /**
+   * Sets the variant of the component.
+   */
   variant?: ButtonVariantClass;
   size?: ButtonSizeClass;
   onClick(): void;
