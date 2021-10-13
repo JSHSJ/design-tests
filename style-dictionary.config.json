@@ -23,6 +23,16 @@
           "format": "json/nested"
         }
       ]
+    },
+    "typescript": {
+      "transformGroup": "js",
+      "buildPath": "src/",
+      "files": [
+        {
+          "destination": "assets/css-ts/base/_theme.css.ts",
+          "format": "css-in-ts"
+        }
+      ]
     }
   }
 }
