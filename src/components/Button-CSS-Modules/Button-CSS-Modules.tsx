@@ -43,10 +43,10 @@ const hasIcon = (children: React.ReactNode) => {
     const hasIconTypes =
       children?.type !== undefined
         ? typeof children.type === "string"
-          ? false
+          ? children.type
           : children.type.name
         : false;
-    return hasIconTypes === (<div />).type.name;
+    return hasIconTypes === (<div />).type;
   }
 };
 
