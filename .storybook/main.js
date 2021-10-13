@@ -18,11 +18,11 @@ module.exports = {
   webpackFinal: (config, { configType }) => {
     const path = require("path");
 
-    config.module.rules.push({
-      test: /\.css$/,
-      use: ["style-loader", "css-loader?modules=true"],
-      include: path.resolve(__dirname, "../"),
-    });
+    // config.module.rules.push({
+    //   test: /\.css$/,
+    //   use: ["style-loader", "css-loader?modules=true"],
+    //   include: path.resolve(__dirname, "../"),
+    // });
 
     config.plugins.push(new VanillaExtractPlugin());
 
