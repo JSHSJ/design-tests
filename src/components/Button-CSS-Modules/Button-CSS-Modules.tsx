@@ -1,6 +1,6 @@
 import React, { FC, ReactNode, useMemo } from "react";
 
-import styles from './Button-CSS-Modules.module.scss';
+import styles from "./Button-CSS-Modules.module.scss";
 
 export enum ButtonVariantClass {
   PRIMARY = "primary",
@@ -30,8 +30,8 @@ export type ButtonProps = {
 
 export interface IChildren {
   type: {
-    name: string,
-  }
+    name: string;
+  };
 }
 
 const hasIcon = (children: React.ReactNode) => {
@@ -40,7 +40,12 @@ const hasIcon = (children: React.ReactNode) => {
   // const hasIcon = children.type?.name === 'Icon';
 
   if (React.isValidElement(children)) {
-    const hasIconTypes = children?.type !== undefined ? children.type?.name : false;
+    const hasIconTypes =
+      children?.type !== undefined
+        ? typeof children.type === "string"
+          ? false
+          : children.type.name
+        : false;
     return hasIconTypes === (<div />).type.name;
   }
 };
@@ -66,7 +71,13 @@ export const ButtonCSS: FC<ButtonProps> = ({
       disabled={disabled}
       aria-label={ariaLabel || ""}
       type={type}
-      className={[styles.btn, styles[variant], styles[size], className, ...hasIcon(children) ? [styles.hasIcon] : []].join(" ")}
+      className={[
+        styles.btn,
+        styles[variant],
+        styles[size],
+        className,
+        ...(hasIcon(children) ? [styles.hasIcon] : []),
+      ].join(" ")}
       onClick={onClick}
     >
       {children}
