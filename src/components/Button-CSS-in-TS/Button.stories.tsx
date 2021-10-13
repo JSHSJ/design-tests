@@ -1,11 +1,6 @@
 import React from "react";
 import { ComponentStory, ComponentMeta } from "@storybook/react";
-
-import {
-  ButtonCSSinTS as Button,
-  ButtonSize,
-  ButtonVariant,
-} from "./Button-CSS-in-TS";
+import { ButtonCSSinTS as Button } from "./Button-CSS-in-TS";
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
@@ -23,25 +18,33 @@ const Template: ComponentStory<typeof Button> = (args) => <Button {...args} />;
 export const Primary = Template.bind({});
 // More on args: https://storybook.js.org/docs/react/writing-stories/args
 Primary.args = {
-  variant: ButtonVariant.PRIMARY,
+  variants: {
+    color: "primary",
+  },
   children: "Button",
 };
 
 export const Outline = Template.bind({});
 Outline.args = {
-  variant: ButtonVariant.OUTLINED,
+  variants: {
+    color: "outlined",
+  },
   children: "Button",
 };
 
 export const Normal = Template.bind({});
 Normal.args = {
-  size: ButtonSize.NORMAL,
+  variants: {
+    size: "normal",
+  },
   children: "Button",
 };
 
 export const Small = Template.bind({});
 Small.args = {
-  size: ButtonSize.SMALL,
+  variants: {
+    size: "small",
+  },
   children: "Button",
 };
 
@@ -49,4 +52,21 @@ export const Disabled = Template.bind({});
 Disabled.args = {
   children: "Button",
   disabled: true,
+};
+
+export const WithIcon = Template.bind({});
+WithIcon.args = {
+  variants: {
+    iconButton: true,
+  },
+  children: <div style={{ width: "1.25rem", height: "1.25rem" }}>x</div>,
+};
+
+export const WithIconSmall = Template.bind({});
+WithIconSmall.args = {
+  variants: {
+    iconButton: true,
+    size: "small",
+  },
+  children: <div style={{ width: "1.25rem", height: "1.25rem" }}>x</div>,
 };

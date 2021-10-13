@@ -1,16 +1,20 @@
 import { vars } from "../../assets/css-ts/base/_theme.css";
 import { recipe, RecipeVariants } from "@vanilla-extract/recipes";
+import { createVar, fallbackVar } from "@vanilla-extract/css";
+
+export const sizeVar = createVar();
 
 export const button = recipe({
   base: {
     position: "relative",
     inlineSize: "auto",
-    blockSize: "fit-content",
+    blockSize: fallbackVar(sizeVar, "3em"),
     display: "flex",
     gap: vars.space.base,
     flexShrink: "initial",
     flexGrow: "initial",
     justifyContent: "flex-start",
+    alignItems: "center",
     border: "none",
     outline: "none",
     cursor: "pointer",
@@ -72,22 +76,35 @@ export const button = recipe({
     },
     size: {
       small: {
+        // set size
+        vars: {
+          [sizeVar]: "2.5em",
+        },
         paddingLeft: vars.space[4],
         paddingRight: vars.space[4],
-        paddingTop: vars.space[2],
-        paddingBottom: vars.space[2],
         textTransform: "none",
         borderRadius: "100px",
       },
       normal: {
+        // set size
+        vars: {
+          [sizeVar]: "3em",
+        },
         paddingLeft: vars.space[7],
         paddingRight: vars.space[7],
-        paddingTop: vars.space[4],
-        paddingBottom: vars.space[4],
       },
     },
     fullWidth: {
       true: { inlineSize: "100%" },
+    },
+    iconButton: {
+      true: {
+        padding: 0,
+        borderRadius: "100%",
+        width: sizeVar,
+        alignItems: "center",
+        justifyContent: "center",
+      },
     },
   },
   defaultVariants: {
